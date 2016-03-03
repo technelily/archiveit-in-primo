@@ -27,8 +27,7 @@
 ```
 var apiurl = "https://archive-it.org/seam/resource/opensearch?i=4472&i=4544&i=2135&i=4398&i=4614&i=4387&i=4432&i=4847&i=4958&i=4269&n=10&q=" + searchQuery.toLowerCase();
 ```
-- Collection number can be concatenated using the same i parameter and the & character in between the parameters
-- The example above shows 10 collections (4472, 4544, 2135, 4398, 4614, 4387, 4423, 4847, 4958, 4269)
+Collection number can be concatenated using the same i parameter and the & character in between the parameters. The example above shows 10 collections (4472, 4544, 2135, 4398, 4614, 4387, 4423, 4847, 4958, 4269)
 
 > Step 3: Edit the CSS to fit the look-and-feel of your Primo site.
 
