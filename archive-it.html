@@ -1,0 +1,264 @@
+<!--created by Ido Peled from Ex Libris for NYARC Primo implementation 201504; last modified by Lily Pregill 201512 -->
+<style>
+			.itemscontainer {
+				padding: 5px 0px 0px 0px;
+			}
+			
+			.itemscontainertitle {
+				padding-top: 15px;
+				margin-bottom: 10px;
+			}
+			
+			.itemscontainertitle a {
+				color: #0075b0;
+				margin: 25px;
+				font-size: 100%;
+				font-weight: bold;
+			}
+			
+			.itemscontainermore {
+				color: #0075b0;
+				margin: 0px 0px 20px 25px;
+				font-weight: bold;
+				font-size: 100%;
+				margin-top: 40px;
+			}
+			
+			.itemscontaineritem {
+				padding: 5px 0px 2px 10px;
+				font-weight: bold;
+				font-size: 120%;
+			}
+			
+			.itemscontainerformats {
+				padding: 0px 0px 5px 10px;
+			}
+			
+			.itemscontaineritemformat {
+				margin: 0px 5px 0px 0px;
+			}
+			
+			.itemscontaineritemformat a {
+				color: #006600;
+				padding: 1px 2px;
+				font-size: 90%;
+			}
+			
+			.itemscontaineritemnotes {
+				font-style: italic;
+				padding: 0px 0px 3px 10px;
+				color: #606060;
+			}
+			
+			.hideItems {
+				display: none;
+			}
+			
+			.itemscontaineravailable li{
+				background-image: url("../images/icon_available.png");
+				background-repeat: no-repeat;
+				background-position: 5px 10px;
+				padding-left: 20px;
+				padding-right: 10px;
+				/*margin-left: 95px;*/
+				padding-bottom: 5px;
+				padding-top: 10px;
+				/*font-color: #52854C;*/
+				font-weight: bold;
+				font-size: 90%;
+				float: left;
+				display: inline;
+				list-style-type: none;
+			}
+
+			.itemscontaineravailable a {
+				color: #52854C;
+				text-decoration: underline;
+			}
+
+			.itemscontainerviewonline {
+				padding: 5px 0px 15px 10px;
+			}
+			
+			.itemscontainerviewonline a {
+				color: #0075b0;
+			}
+			
+			.itemcontainerthumbnail {
+				background-image: url("http://nyarc-primo.hosted.exlibrisgroup.com/primo_library/libweb/uploaded_files/01NYARC/website.png");
+				float: left;
+				width: 38px;
+				border: 1px solid #bdbcbd;
+				height: 56px;
+				position: relative;
+				margin: 6px 30px 30px 25px;
+				background-repeat: no-repeat;
+				font-size: 95%;
+			}
+
+			.tooltip {
+				display:none;
+				position:absolute;
+				border:1px solid #333;
+				background-color:#161616;
+				border-radius:5px;
+				padding:10px;
+				color:#fff;
+				font-size:12px Arial;
+				}
+
+		</style>
+
+
+	   <script>
+		
+			function PageQuery(q) {
+				if(q.length > 1) this.q = q.substring(1, q.length);
+				else this.q = null;
+				this.keyValuePairs = new Array();
+				if(q) {
+					for(var i=0; i < this.q.split("&").length; i++) {
+						this.keyValuePairs[i] = this.q.split("&")[i];
+					}
+				}
+				this.getKeyValuePairs = function() { return this.keyValuePairs; }
+				this.getValue = function(s) {
+					for(var j=0; j < this.keyValuePairs.length; j++) {
+						if(this.keyValuePairs[j].split("=")[0] == s)
+						return this.keyValuePairs[j].split("=")[1];
+					}
+					return false;
+				}
+				this.getParameters = function() {
+					var a = new Array(this.getLength());
+					for(var j=0; j < this.keyValuePairs.length; j++) {
+						a[j] = this.keyValuePairs[j].split("=")[0];
+					}
+					return a;
+				}
+				this.getLength = function() { return this.keyValuePairs.length; }
+			}
+	
+			function queryString(key){
+				var page = new PageQuery(window.location.search);
+				return unescape(page.getValue(key));
+			}
+		
+			function getLocation(total) {
+				return 0;
+			
+				if (total < 500) {
+					return 2;
+				} else if (total < 1000) {
+					return 1;
+				} else {
+					return 0;
+				}
+			}
+			
+			 
+			function loadImages() {
+
+				var searchQuery = queryString("vl%28freeText0%29").replace(/\+/g, " ");
+				if ((!searchQuery) || ("false" == searchQuery)) {
+					searchQuery = queryString("vl(freeText0)").replace(/\+/g, " ");
+				}
+				
+				var htmlText, foundItems;
+				var linkUrl, format, notes;
+				
+				// Edit the i parameter below to include Archive-It collection index to search. 
+
+				
+				var apiurl = "https://archive-it.org/seam/resource/opensearch?i=4472&i=4544&i=2135&i=4398&i=4614&i=4387&i=4432&i=4847&i=4958&i=4269&n=10&q=" + searchQuery.toLowerCase();
+				
+				$.ajax({
+					  url: apiurl,
+					  data: { 
+					  },
+				}).done(function(data) {
+					foundItems = false;
+					
+					htmlText = "<tr id='resultsdiv'><td colspan='100'><div class='itemscontainer'><div class='itemscontainertitle'><a target='_new' href='https://www.archive-it.org/organizations/484?q=" + searchQuery + "&amp;page=1&amp;show=ArchivedPages'>Web Archive Results for \"" + searchQuery + "\"</a></div>";
+					
+					$(data).find("item").each(function(i, doc) {
+						foundItems = true;
+						
+						linkUrl = "http://wayback.archive-it.org/" + $(doc).find("collection").text() + "/" + $(doc).find("date").last().text() + "/" + $(doc).find("link").text();
+
+						// Add link to calendar page
+						linkUrlAll = "http://wayback.archive-it.org/" + $(doc).find("collection").text() + "/*/" + $(doc).find("link").text();
+						
+						htmlText += "<div class='itemcontainerthumbnail'><br><br><br><br>Website</div>";
+					    htmlText += "<div class='itemscontaineritem'><a href='" + linkUrl + "' target='_new'>" + $(doc).find("title").text() + "</a></div>";
+						// htmlText += "<div class='itemscontaineravailable'>Full text archived copy available</div>";
+						
+						notes = $(doc).find("description").text();
+						notes = notes.substr(0, 200);
+						notes = notes.substr(0, notes.lastIndexOf(" ")) + "...";
+						htmlText += "<div class='itemscontaineritemnotes'>" + notes + "</div>";
+						// htmlText += "<div class='itemscontaineritemnotes'>" + $(doc).find("date").first().text() + "</div>";
+						htmlText += "<div class='itemscontaineravailable'><ul><li><a href='" + linkUrl + "' target='_new'>View Archived Website</a></li></div>";
+						htmlText += "<div class='itemscontaineravailable'><li><a href='" + linkUrlAll + "' target='_new'>View All Versions</a></li></ul></div>";
+						
+						if (i == 0) {
+							return false;
+						}
+					});
+					
+					if (foundItems) {
+						htmlText += "</div><div class='itemscontainermore'><a target='_new' href='https://www.archive-it.org/organizations/484?q=" + searchQuery + "&amp;page=1&amp;show=ArchivedPages'>more web archive results ...</a></div></td></tr>";
+
+						$("#exlidResult" + getLocation($(data).find("totalResults").text())).after(htmlText);
+
+			
+						$('#exlidFacetTile ol:first').append('<li class="EXLFacet"><input id="toggleImages" type="checkbox" name="toggleImages" value="off" class="uncheckable showhide" checked> <label for="toggleImages">&nbsp;&nbsp;Display Web Archive Collection results</label></input> <a href="#" data-toggle="tooltip" title="A web archive is a collection of captured websites as presented on the live web at a given point in time."><i class="fa fa-info-circle"></i></a></div>')	
+
+						//hides the web archive results on pages > 1. 
+
+						if ($(".EXLBriefResultsPaginationPageCount:not(:contains('1'))").length != 0)
+     					{
+        					$('#resultsdiv').addClass('hideItems');
+        					$('#toggleImages').removeAttr('checked');
+        					
+     					}		
+
+						//hides the web archive results when a facet is selected and the page is refreshed
+
+						if ($(".EXLRefinementRibbonWithExclude").length != 0)
+     					{
+        					$('#resultsdiv').addClass('hideItems');
+        					$('#toggleImages').removeAttr('checked');
+        					
+     					}
+						
+						$('.showhide').click(function() {
+						    $('#resultsdiv').toggleClass('hideItems');
+
+						
+     					$('[data-toggle="tooltip"]').tooltip();
+
+
+						});
+						
+					}
+					
+				}).fail(function( xhr, textStatus, error ) {
+					var response = $.parseJSON(xhr.responseText);
+					if (response) {
+						alert(response.error);
+					}
+				    alert( "Request Failed: " + textStatus );
+				});
+
+
+
+			};
+
+
+
+			
+			loadImages();
+
+
+		</script>
