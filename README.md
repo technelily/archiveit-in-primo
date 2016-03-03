@@ -18,7 +18,7 @@
 
 **Overview of Integration:**
 
-![screenshot of NYARC Discovery](/archive-it-in-primo.png "Description goes here")
+![screenshot of NYARC Discovery](https://github.com/technelily/archiveit-in-primo/blob/master/archiveit-in-primo.png "screenshot of NYARC Discovery")
 
 **Working Implementation:** [NYARC Discovery] (http://discovery.nyarc.org)
 
