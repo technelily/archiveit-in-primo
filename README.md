@@ -65,7 +65,7 @@ To change default check-box behavior:
 htmlText = "<tr id='resultsdiv' class='hideItems'>
 ```
 
-remove class=’hideItems’ to default to displaying AIT results; also add checked to input element:
+remove class=’hideItems’ to default to displaying Archive-It results; also add checked to input element:
 
 ```
 <input id="toggleImages" type="checkbox" name="toggleImages" value="off" class="uncheckable showhide" checked>
