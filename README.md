@@ -9,7 +9,7 @@
 
 **Revised by:**
 > Lily Pregill <br/>
-> Techne Library Consulting <br/>
+> Techne Library Consulting for the New York Art Resources Consortium <br/>
 > lily@technelib.com <br/>
 
 **Date:** March 3, 2016
