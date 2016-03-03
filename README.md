@@ -22,7 +22,7 @@
 
 > Step 3: Save archive-it.html to the institution's Primo server under static_htmls.
 
-'''
+```
 var apiurl = "https://archive-it.org/seam/resource/opensearch?i=4472&i=4544&i=2135&i=4398&i=4614&i=4387&i=4432&i=4847&i=4958&i=4269&n=10&q=" + searchQuery.toLowerCase();
-'''
+```
 
