@@ -1,5 +1,5 @@
 # archiveit-in-primo
-**Title**: Intergration of Archive-It results via OpenSearch API with Ex Libris Primo 
+**Title**: Integration of Archive-It results via OpenSearch API with Ex Libris Primo 
 
 **Created by:**
 > Ido Peled<br/>
