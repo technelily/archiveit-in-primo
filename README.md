@@ -39,7 +39,7 @@ Collection number can be concatenated using the same i parameter and the & chara
 
 > Step 3: Edit the CSS to fit the look-and-feel of your Primo site.
 
-> Step 4: Save archive-it.html to the institution's Primo server under static_htmls.
+> Step 4: Save archive-it.html to the institution's Primo server under static_htmls. For hosted sites go to "Primo Backoffice > Primo Utilities > File Uploader" to upload the file.
 
 > Step 5: Open Primo BackOffice administrative interface
 
@@ -47,19 +47,20 @@ Collection number can be concatenated using the same i parameter and the & chara
 
 > Step 7: Open the relevant view for editing
 
-> Step 8: Click on “Customize Layout” from the first screen
+> Step 8: Click on Edit next to “Layout Set: Customize Layout” on the first screen
 
-> Step 9: Change the “Page” dropdown box to “Brief Results”
+> Step 9: Change the “Page” dropdown box to “Brief Display”
 
 > Step 10: Click on the "contentEXL - Div"
 
 > Step 11: Add a new tile using the "Add Tile" button on the right side of the screen
 
-> Step 12: Click on the "new tile"
+> Step 12: Click on the "new tile" [it will be highlighted in orange.]
 
-> Step 13: Change the "content" dropdown box to "Custom Tile"
+> Step 13: Under Editing (tile) change the "content" dropdown box to "Custom Tile"
 
-> Step 14: Enter the URL of the "archive-it.html" file as placed under the static_htmls
+> Step 14: Enter the URL of the "archive-it.html" file as placed under the static_htmls. For example:
+http://primosb-pmtna.hosted.exlibrisgroup.com/primo_library/libweb/uploaded_files/01NYARC/archive-it.html
 
 > Step 15: Continue to deploy the changes
 
