@@ -3,7 +3,7 @@
 
 **Created by:**
 > Ido Peled<br/>
-> Solutions Architect Manager<br/>
+> VP, Solutions and Marketing <br/>
 > Ex Libris, a ProQuest Company <br/>
 > ido.peled@exlibrisgroup.com <br/>
 
