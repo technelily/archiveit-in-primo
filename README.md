@@ -20,7 +20,7 @@
 
 ![screenshot of NYARC Discovery](https://github.com/technelily/archiveit-in-primo/blob/master/archiveit-in-primo.png "screenshot of NYARC Discovery")
 
-The red arrow points to the checkbox that controls whether the display of the Archive-It results. The default setting is to include results, but this can be controlled in the HTML file (see Notes below). The user can easily toggle the results on or off.
+The red arrow points to the checkbox that controls the display of the Archive-It results. The default setting is to include results, but this can be controlled in the HTML file (see Notes below). The user can easily toggle the results on or off.
 
 The red box contains the Archive-It result. The number of results, icon image, links, and link text labels can be customized by editing the code in the HTML file. 
 
