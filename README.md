@@ -15,7 +15,7 @@
 
 **Date:** March 3, 2016
 
-**Background:** This solution was developed by Ex Libris for the New York Art Resources Consortium (NYARC) to display Archive-It results directly within the Primo user interface using the [OpenSearch API] (https://webarchive.jira.com/wiki/display/search/OpenSearch+API). NYARC's Primo instance is hosted by Ex Libris. Questions about the NYARC implementation can be sent to Lily Pregill, who consults as the NYARC Coordinator & Systems Manager. Thanks to Ido Peled for this development work and sharing the details here. 
+**Background:** This solution was developed by Ex Libris for the New York Art Resources Consortium (NYARC) to display [Archive-It] (https://archive-it.org/organizations/484) web archive results directly within the Primo user interface using the [OpenSearch API] (https://webarchive.jira.com/wiki/display/search/OpenSearch+API). NYARC's Primo instance is hosted by Ex Libris. Questions about the NYARC implementation can be sent to Lily Pregill, who consults as the NYARC Coordinator & Systems Manager. Thanks to Ido Peled for this development work and sharing the details here. 
 
 **Overview of Integration:**
 
