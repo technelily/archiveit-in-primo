@@ -15,7 +15,7 @@
 
 **Date:** March 3, 2016
 
-**Background:** This solution was developed by Ex Libris for the New York Art Resources Consortium (NYARC) to display [Archive-It] (https://archive-it.org/organizations/484) web archive results directly within the Primo user interface using the [OpenSearch API] (https://webarchive.jira.com/wiki/display/search/OpenSearch+API). NYARC's Primo instance is hosted by Ex Libris. Questions about the NYARC implementation can be sent to Lily Pregill, who consults as the NYARC Coordinator & Systems Manager. Thanks to Ido Peled for this development work and sharing the details here. 
+**Background:** This solution was developed by Ex Libris for the New York Art Resources Consortium (NYARC) to display [Archive-It](https://archive-it.org/organizations/484) web archive results directly within the Primo user interface using the [OpenSearch API](https://support.archive-it.org/hc/en-us/articles/208002246). NYARC's Primo instance is hosted by Ex Libris. Questions about the NYARC implementation can be sent to Lily Pregill, who consults as the NYARC Coordinator & Systems Manager. Thanks to Ido Peled for this development work and sharing the details here. 
 
 **Overview of Integration:**
 
@@ -25,7 +25,7 @@ The red arrow points to the checkbox that controls the display of the Archive-It
 
 The red box contains the Archive-It result. The number of results, icon image, links, and link text labels can be customized by editing the code in the HTML file. 
 
-**Working Implementation:** [NYARC Discovery] (http://discovery.nyarc.org)
+**Working Implementation:** [NYARC Discovery](http://discovery.nyarc.org)
 
 **Process:**
 
@@ -34,7 +34,7 @@ The red box contains the Archive-It result. The number of results, icon image, l
 > Step 2: Edit line 173 to include the institution’s Archive-It collection numbers:
 
 ```
-var apiurl = "https://archive-it.org/seam/resource/opensearch?i=4472&i=4544&i=2135&i=4398&i=4614&i=4387&i=4432&i=4847&i=4958&i=4269&n=10&q=" + searchQuery.toLowerCase();
+var apiurl = "https://archive-it.org/search-master/opensearch?i=4472&i=4544&i=2135&i=4398&i=4614&i=4387&i=4432&i=4847&i=4958&i=4269&n=10&q=" + searchQuery.toLowerCase();
 ```
 Collection number can be concatenated using the same i parameter and the & character in between the parameters. The example above shows 10 collections (4472, 4544, 2135, 4398, 4614, 4387, 4423, 4847, 4958, 4269)
 
